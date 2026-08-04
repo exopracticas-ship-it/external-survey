@@ -14,7 +14,7 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="text/babel" data-presets="env,react">
+    <script type="text/plain" id="app-source">
       const { useState } = React;
 
       // ─── AIRTABLE CONFIGURATION ───────────────────────────────────────────────────
@@ -690,6 +690,7 @@
 
       ReactDOM.createRoot(document.getElementById('root')).render(<App />);
     </script>
+    <script>window.__srcCode=document.getElementById('app-source').textContent;window.__outCode=Babel.transform(window.__srcCode,{presets:[["react",{runtime:"classic"}],"env"]}).code;window.__s=document.createElement('script');window.__s.textContent=window.__outCode;document.body.appendChild(window.__s);</script>
   </body>
 </html>
 
